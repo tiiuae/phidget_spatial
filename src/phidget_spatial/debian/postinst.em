@@ -17,4 +17,24 @@ EOF
 chmod 644 /etc/udev/rules.d/99-phidgets.rules
 
 echo "Please input correct drone ID and phidget serial numbers into /opt/ros/foxy/lib/phidget_spatial/phidget_spatial.yaml"
+
+cat << EOF > /etc/systemd/system/phidget_spatial.service
+
+[Unit]
+Description=Phidget Spatial service
+StopWhenUnneeded=true
+
+[Service]
+Type=simple
+User=sad
+Group=sad
+Restart=always
+RestartSec=5
+ExecStart=/bin/sh -c ". /opt/ros/foxy/setup_fog.sh; ros2 launch phidget_spatial phidget_spatial_launch.py"
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+
 exit 0
