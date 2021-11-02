@@ -2,4 +2,4 @@ kide:
   phidget_spatial_node:
     ros__parameters:
       publish_interval_ms: 1000
-      motor_serials: [373314] #[373225, 373257, 373306, 373316]
+      motor_serials: [373316, 373225, 373306, 373257] #[373314]
