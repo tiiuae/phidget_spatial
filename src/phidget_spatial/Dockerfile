@@ -15,10 +15,6 @@ RUN rm /etc/apt/sources.list.d/ros2-latest.list && \
 
 # RUN echo "deb [trusted=yes] https://artifactory.ssrc.fi/artifactory/debian-public-local focal fog-sw" >> /etc/apt/sources.list
 
-RUN apt-get install -y wget && \
-    wget -qO- http://www.phidgets.com/gpgkey/pubring.gpg | apt-key add - && \
-    echo 'deb http://www.phidgets.com/debian bullseye main' > /etc/apt/sources.list.d/phidgets.list
-
 # Install build dependencies
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     build-essential \
@@ -29,11 +25,9 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     python3 \
     pip \
     python3-bloom \
-    libphidget22 \
     dh-python \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install Phidget22
 
 WORKDIR /build
 

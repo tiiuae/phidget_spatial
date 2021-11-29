@@ -1,5 +1,5 @@
-kide:
+sadXX:
   phidget_spatial_node:
     ros__parameters:
-      publish_interval_ms: 1000
-      motor_serials: [373316, 373225, 373306, 373257] #[373314]
+      publish_interval_ms: X
+      motor_serials: [X, X, X, X]
